@@ -2,6 +2,6 @@
 
 A app to manage money
 
-#Release
+# Release
 
 v1 - sept 6
