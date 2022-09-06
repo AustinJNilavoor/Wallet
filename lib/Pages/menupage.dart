@@ -143,11 +143,11 @@ class _MenuPageState extends State<MenuPage> {
           children: [
             Container(
                 decoration: BoxDecoration(
-                    color: Colors.purpleAccent,
+                    color: Colors.blue,
                     borderRadius: BorderRadius.circular(50)),
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
-                  child: Icon(icon),
+                  child: Icon(icon,color: Colors.white70,),
                 )),
             const SizedBox(
               height: 4,
