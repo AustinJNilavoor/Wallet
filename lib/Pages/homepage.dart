@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
     const color = Colors.red;
     // Singlechildscrollview
     return Scaffold(
-      backgroundColor: Color(0xff121212),
+      backgroundColor: const Color(0xff121212),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: const Icon(Icons.add),
