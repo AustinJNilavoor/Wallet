@@ -1,4 +1,6 @@
-import 'package:flutter/material.dart';class HistoryPage extends StatefulWidget {
+import 'package:flutter/material.dart';
+
+class HistoryPage extends StatefulWidget {
   const HistoryPage({Key? key}) : super(key: key);
 
   @override
@@ -8,8 +10,8 @@ import 'package:flutter/material.dart';class HistoryPage extends StatefulWidget 
 class _HistoryPageState extends State<HistoryPage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Text("History Page")),
+    return const Center(
+      child: Text("History Page", style: TextStyle(color: Colors.white70)),
     );
   }
 }

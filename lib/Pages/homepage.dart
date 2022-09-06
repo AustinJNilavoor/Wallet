@@ -18,6 +18,7 @@ class _HomePageState extends State<HomePage> {
     const color = Colors.red;
     // Singlechildscrollview
     return Scaffold(
+      backgroundColor: Color(0xff121212),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: const Icon(Icons.add),
@@ -39,7 +40,7 @@ class _HomePageState extends State<HomePage> {
             width: width + 10,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.0),
-                color: Colors.grey.shade300),
+                color: Colors.grey.shade800),
             child: const Center(
               child: Text(
                 '₹ newTab',
@@ -56,40 +57,42 @@ class _HomePageState extends State<HomePage> {
             width: width + 10,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.0),
-                color: Colors.grey.shade300),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Padding(
-                  padding: EdgeInsets.only(left: 10,top: 10),
-                  child: Text('Shortcuts',style: TextStyle(fontSize: 21,fontWeight: FontWeight.bold),),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Container(
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        
-                        children: [
-                          buildButton(text: 'Collage'),
-                          buildButton(text: 'Collage'),
-                          buildButton(text: 'Collage'),
-                          buildButton(text: 'Collage'),
-                          buildButton(text: 'Collage'),
-                          buildButton(text: 'Collage'),
-                          buildButton(text: 'Collage'),
-                          buildButton(text: 'Collage'),
-                          buildButton(text: 'Collage'),
-                          buildButton(text: 'Collage'),
-                          buildButton(text: 'Collage'),
-                        ],
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
+                color: Colors.grey.shade800),
+            // child: Column(
+            //   crossAxisAlignment: CrossAxisAlignment.start,
+            //   children: [
+            //     const Padding(
+            //       padding: EdgeInsets.only(left: 10, top: 10),
+            //       child: Text(
+            //         'Shortcuts',
+            //         style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
+            //       ),
+            //     ),
+            //     Padding(
+            //       padding: const EdgeInsets.symmetric(horizontal: 10),
+            //       child: Container(
+            //         child: SingleChildScrollView(
+            //           scrollDirection: Axis.horizontal,
+            //           child: Row(
+            //             children: [
+            //               buildButton(text: 'Collage'),
+            //               buildButton(text: 'Collage'),
+            //               buildButton(text: 'Collage'),
+            //               buildButton(text: 'Collage'),
+            //               buildButton(text: 'Collage'),
+            //               buildButton(text: 'Collage'),
+            //               buildButton(text: 'Collage'),
+            //               buildButton(text: 'Collage'),
+            //               buildButton(text: 'Collage'),
+            //               buildButton(text: 'Collage'),
+            //               buildButton(text: 'Collage'),
+            //             ],
+            //           ),
+            //         ),
+            //       ),
+            //     )
+            //   ],
+            // ),
           )),
           const SizedBox(
             height: 17,
@@ -106,7 +109,7 @@ class _HomePageState extends State<HomePage> {
       margin: const EdgeInsets.only(left: 5, right: 5),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.0),
-          color: Colors.grey.shade300),
+          color: Colors.grey.shade800),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -116,7 +119,10 @@ class _HomePageState extends State<HomePage> {
             child: Text(
               '₹ amount',
               // Change text size
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white70),
             ),
           ),
           SizedBox(
@@ -127,7 +133,10 @@ class _HomePageState extends State<HomePage> {
             child: Text(
               // Change text size
               "type",
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white70),
             ),
           )
         ],
@@ -149,7 +158,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               Container(
                   decoration: BoxDecoration(
-                      color: Colors.purpleAccent,
+                      color: Colors.grey,
                       borderRadius: BorderRadius.circular(50)),
                   child: const Padding(
                     padding: EdgeInsets.all(12.0),

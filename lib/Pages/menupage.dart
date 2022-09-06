@@ -10,37 +10,35 @@ class MenuPage extends StatefulWidget {
 class _MenuPageState extends State<MenuPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
+    return SingleChildScrollView(
+      child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: SingleChildScrollView(
-          child: Column(
-            // shrinkWrap: true,
-            // crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              buildSBox(amount: 10000, text: 'Total Balance'),
-              const SizedBox(
-                height: 17,
-              ),
-              buildBoxGrid(),
-              const SizedBox(
-                height: 9,
-              ),
-              const Divider(
-                indent: 15,
-                endIndent: 15,
-                color: Colors.grey,
-                thickness: 1.2,
-              ),
-              const SizedBox(
-                height: 9,
-              ),
-              buildButtonGrid(),
-              const SizedBox(
-                height: 17,
-              ),
-            ],
-          ),
+        child: Column(
+          // shrinkWrap: true,
+          // crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            buildSBox(amount: 10000, text: 'Total Balance'),
+            const SizedBox(
+              height: 17,
+            ),
+            buildBoxGrid(),
+            const SizedBox(
+              height: 9,
+            ),
+            const Divider(
+              indent: 15,
+              endIndent: 15,
+              color: Colors.grey,
+              thickness: 1.2,
+            ),
+            const SizedBox(
+              height: 9,
+            ),
+            buildButtonGrid(),
+            const SizedBox(
+              height: 17,
+            ),
+          ],
         ),
       ),
     );
@@ -74,10 +72,11 @@ class _MenuPageState extends State<MenuPage> {
       children: [
         buildButton(icon: Icons.money_rounded, text1: 'Adv.', text2: 'Add'),
         buildButton(icon: Icons.add, text1: 'Add', text2: 'Tranfer'),
-        buildButton(icon: Icons.celebration_rounded, text1: 'Add', text2: 'Reward'),
         buildButton(
-            icon: Icons.category, text1: 'Add', text2: 'Category'),
-        buildButton(icon: Icons.shortcut_rounded, text1: 'Create', text2: 'Shortcut'),
+            icon: Icons.celebration_rounded, text1: 'Add', text2: 'Reward'),
+        buildButton(icon: Icons.category, text1: 'Add', text2: 'Category'),
+        buildButton(
+            icon: Icons.shortcut_rounded, text1: 'Create', text2: 'Shortcut'),
         buildButton(icon: Icons.settings, text1: 'add', text2: 'Button 6'),
         buildButton(icon: Icons.search, text1: 'Search', text2: ''),
         buildButton(icon: Icons.fire_hydrant, text1: 'add', text2: 'Button 8'),
@@ -97,18 +96,20 @@ class _MenuPageState extends State<MenuPage> {
       margin: const EdgeInsets.only(left: 5, right: 5),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15.0),
-          color: Colors.grey.shade300),
+          color: Colors.grey.shade800),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 12, right: 12),
-            child: Text(
-              '₹ $amount',
-              // Change text size
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
+            child: Text('₹ $amount',
+                // Change text size
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white70,
+                )),
           ),
           const SizedBox(
             height: 5,
@@ -118,7 +119,10 @@ class _MenuPageState extends State<MenuPage> {
             child: Text(
               // Change text size
               text,
-              style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white70),
             ),
           )
         ],
@@ -132,7 +136,7 @@ class _MenuPageState extends State<MenuPage> {
       borderRadius: BorderRadius.circular(20),
       onTap: () {},
       child: Padding(
-        padding: const EdgeInsets.only(top:3.0,bottom: 2),
+        padding: const EdgeInsets.only(top: 3.0, bottom: 2),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -148,8 +152,14 @@ class _MenuPageState extends State<MenuPage> {
             const SizedBox(
               height: 4,
             ),
-            Text(text1),
-            Text(text2)
+            Text(
+              text1,
+              style: const TextStyle(color: Colors.white70),
+            ),
+            Text(
+              text2,
+              style: const TextStyle(color: Colors.white70),
+            )
           ],
         ),
       ),

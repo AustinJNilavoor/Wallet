@@ -38,18 +38,18 @@ class _MainWidState extends State<MainWid> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xff121212),
       appBar: AppBar(
         backgroundColor: const Color(0x00000000),
         elevation: 0.0,
         title: const Text(
           'My Wallet',
-          style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,
       ),
       body: pages[index],
       bottomNavigationBar: Container(
-        color: Colors.grey.shade300,
+        color: Colors.grey.shade800,
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
           child: GNav(
@@ -58,8 +58,11 @@ class _MainWidState extends State<MainWid> {
                   }),
               // iconSize: 21,
               gap: 8,
-              tabBackgroundColor: Colors.white,
-              backgroundColor: Colors.grey.shade300,
+              
+              tabBackgroundColor: const Color(0xff121212),
+              activeColor: Colors.white70,
+              color: Colors.white70,
+              backgroundColor: Colors.grey.shade800,
               tabBorderRadius: 25,
               padding: const EdgeInsets.all(16),
               tabs: const [
