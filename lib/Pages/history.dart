@@ -43,13 +43,14 @@ class _HistoryPageState extends State<HistoryPage> {
   }
 
   Widget buildBoxHis() {
+    // Long press to delete
+    // tap to edit
     return Container(
-      // height: 80,
       width: (MediaQuery.of(context).size.width - 40),
       decoration: BoxDecoration(
           color: Colors.grey.shade900, borderRadius: BorderRadius.circular(20)),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 15),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -71,9 +72,18 @@ class _HistoryPageState extends State<HistoryPage> {
                 ),
               ],
             ),
-            const Text(
-              '1000',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold,color: Colors.white70),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: const [
+                Text(
+                  '1000',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold,color: Colors.white70),
+                ),SizedBox(height: 5,),
+                Text(
+                  '10,000,000',
+                  style: TextStyle(color: Colors.white70),
+                ),
+              ],
             )
           ],
         ),

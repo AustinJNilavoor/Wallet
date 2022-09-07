@@ -23,81 +23,93 @@ class _HomePageState extends State<HomePage> {
         onPressed: () {},
         child: const Icon(Icons.add),
       ),
-      body: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              buildSBox(width: width / 2),
-              buildSBox(width: width / 2)
-            ],
-          ),
-          const SizedBox(
-            height: 17,
-          ),
-          Container(
-            height: 70,
-            width: width + 10,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.0),
-                color: Colors.grey.shade900),
-            child: const Center(
-              child: Text(
-                '₹ newTab',
-                style: TextStyle(
-                    fontSize: 25, fontWeight: FontWeight.bold, color: color),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                buildSBox(width: width / 2),
+                buildSBox(width: width / 2)
+              ],
+            ),
+            const SizedBox(
+              height: 17,
+            ),
+            Container(
+              height: 70,
+              width: width + 10,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20.0),
+                  color: Colors.grey.shade900),
+              child: const Center(
+                child: Text(
+                  '₹ 100',
+                  style: TextStyle(
+                      fontSize: 25, fontWeight: FontWeight.bold, color: color),
+                ),
               ),
             ),
-          ),
-          const SizedBox(
-            height: 17,
-          ),
-          Expanded(
-              child: Container(
-            width: width + 10,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.0),
-                color: Colors.grey.shade900),
-            // child: Column(
-            //   crossAxisAlignment: CrossAxisAlignment.start,
-            //   children: [
-            //     const Padding(
-            //       padding: EdgeInsets.only(left: 10, top: 10),
-            //       child: Text(
-            //         'Shortcuts',
-            //         style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
-            //       ),
-            //     ),
-            //     Padding(
-            //       padding: const EdgeInsets.symmetric(horizontal: 10),
-            //       child: Container(
-            //         child: SingleChildScrollView(
-            //           scrollDirection: Axis.horizontal,
-            //           child: Row(
-            //             children: [
-            //               buildButton(text: 'Collage'),
-            //               buildButton(text: 'Collage'),
-            //               buildButton(text: 'Collage'),
-            //               buildButton(text: 'Collage'),
-            //               buildButton(text: 'Collage'),
-            //               buildButton(text: 'Collage'),
-            //               buildButton(text: 'Collage'),
-            //               buildButton(text: 'Collage'),
-            //               buildButton(text: 'Collage'),
-            //               buildButton(text: 'Collage'),
-            //               buildButton(text: 'Collage'),
-            //             ],
-            //           ),
-            //         ),
-            //       ),
-            //     )
-            //   ],
-            // ),
-          )),
-          const SizedBox(
-            height: 17,
-          )
-        ],
+            const SizedBox(
+              height: 9,
+            ),
+            const Divider(
+              indent: 8,
+              endIndent: 8,
+              color: Colors.grey,
+              thickness: 1.2,
+            ),
+            SizedBox(
+              // height: 70,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text('Shortcuts',
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white70)),
+                    const SizedBox(
+                      height: 4,
+                    ),
+                    Row(
+                      children: [
+                        InkWell(
+                          onTap: (){},
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: Colors.grey.shade900,
+                                borderRadius: BorderRadius.circular(20.0)),
+                            child: const Padding(
+                              padding: EdgeInsets.all(12),
+                              child: Icon(Icons.add,color: Colors.white70,),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 4,
+            ),
+            Expanded(
+                child: Container(
+              width: width + 10,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20.0),
+                  color: Colors.grey.shade900),
+            )),
+            const SizedBox(
+              height: 17,
+            )
+          ],
+        ),
       ),
     );
   }
@@ -117,7 +129,7 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: EdgeInsets.only(left: 12, right: 12),
             child: Text(
-              '₹ amount',
+              '₹ 1000',
               // Change text size
               style: TextStyle(
                   fontSize: 25,
@@ -132,7 +144,7 @@ class _HomePageState extends State<HomePage> {
             padding: EdgeInsets.only(left: 50, right: 50),
             child: Text(
               // Change text size
-              "type",
+              'Wallet',
               style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
@@ -140,37 +152,6 @@ class _HomePageState extends State<HomePage> {
             ),
           )
         ],
-      ),
-    );
-  }
-
-  Widget buildButton({required String text}) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 15),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(20),
-        onTap: () {},
-        child: Padding(
-          padding: const EdgeInsets.only(top: 3.0, bottom: 2),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                  decoration: BoxDecoration(
-                      color: Colors.grey,
-                      borderRadius: BorderRadius.circular(50)),
-                  child: const Padding(
-                    padding: EdgeInsets.all(12.0),
-                    child: Icon(Icons.cabin),
-                  )),
-              const SizedBox(
-                height: 4,
-              ),
-              Text(text),
-            ],
-          ),
-        ),
       ),
     );
   }

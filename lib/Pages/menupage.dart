@@ -57,6 +57,13 @@ class _MenuPageState extends State<MenuPage> {
         buildSBox(amount: 500, text: 'Home'),
         buildSBox(amount: 27, text: 'Amazon Pay'),
         buildSBox(amount: 54425, text: 'Lend'),
+        Container(
+          margin: const EdgeInsets.only(left: 5, right: 5),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15.0),
+              color: Colors.grey.shade900),
+          child: const Icon(Icons.add,color: Colors.white70,),
+        )
       ],
     );
   }
@@ -77,14 +84,14 @@ class _MenuPageState extends State<MenuPage> {
         buildButton(icon: Icons.category, text1: 'Add', text2: 'Category'),
         buildButton(
             icon: Icons.shortcut_rounded, text1: 'Create', text2: 'Shortcut'),
-        buildButton(icon: Icons.settings, text1: 'add', text2: 'Button 6'),
+        buildButton(icon: Icons.clear, text1: 'Clear', text2: 'History'),
         buildButton(icon: Icons.search, text1: 'Search', text2: ''),
-        buildButton(icon: Icons.fire_hydrant, text1: 'add', text2: 'Button 8'),
-        buildButton(icon: Icons.mic, text1: '', text2: 'Button 9'),
+        buildButton(icon: Icons.stacked_bar_chart_rounded, text1: 'Multiple', text2: 'Trans.'),
+        buildButton(icon: Icons.print, text1: 'Print', text2: 'Trans.'),
         buildButton(
-            icon: Icons.swipe_left_alt_sharp, text1: '', text2: 'Button 10'),
-        buildButton(icon: Icons.textsms, text1: '', text2: 'Button 11'),
-        buildButton(icon: Icons.kayaking, text1: '', text2: 'Button 12'),
+            icon: Icons.calendar_month, text1: 'Create', text2: 'Plan'),
+        buildButton(icon: Icons.security, text1: 'Add', text2: 'Button 11'),
+        buildButton(icon: Icons.security, text1: 'Add', text2: 'Button 12'),
       ],
     );
   }
@@ -147,7 +154,10 @@ class _MenuPageState extends State<MenuPage> {
                     borderRadius: BorderRadius.circular(50)),
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
-                  child: Icon(icon,color: Colors.white70,),
+                  child: Icon(
+                    icon,
+                    color: Colors.white70,
+                  ),
                 )),
             const SizedBox(
               height: 4,
