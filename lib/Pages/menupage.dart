@@ -12,7 +12,7 @@ class _MenuPageState extends State<MenuPage> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 5),
         child: Column(
           // shrinkWrap: true,
           // crossAxisAlignment: CrossAxisAlignment.end,
@@ -99,7 +99,7 @@ class _MenuPageState extends State<MenuPage> {
   Widget buildSBox({required int amount, required String text}) {
     return Container(
       height: 70,
-      width: (MediaQuery.of(context).size.width - 40),
+      width: (MediaQuery.of(context).size.width - 20),
       margin: const EdgeInsets.only(left: 5, right: 5),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15.0),

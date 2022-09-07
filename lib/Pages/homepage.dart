@@ -14,9 +14,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget buildBody() {
-    final width = (MediaQuery.of(context).size.width - 40);
     const color = Colors.red;
-    // Singlechildscrollview
     return Scaffold(
       backgroundColor: const Color(0xff121212),
       floatingActionButton: FloatingActionButton(
@@ -30,8 +28,11 @@ class _HomePageState extends State<HomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                buildSBox(width: width / 2),
-                buildSBox(width: width / 2)
+                buildSBox(),
+                const SizedBox(
+                  width: 7,
+                ),
+                buildSBox()
               ],
             ),
             const SizedBox(
@@ -39,7 +40,6 @@ class _HomePageState extends State<HomePage> {
             ),
             Container(
               height: 70,
-              width: width + 10,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20.0),
                   color: Colors.grey.shade900),
@@ -61,7 +61,6 @@ class _HomePageState extends State<HomePage> {
               thickness: 1.2,
             ),
             SizedBox(
-              // height: 70,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
@@ -78,14 +77,21 @@ class _HomePageState extends State<HomePage> {
                     Row(
                       children: [
                         InkWell(
-                          onTap: (){},
-                          child: Container(
-                            decoration: BoxDecoration(
-                                color: Colors.grey.shade900,
-                                borderRadius: BorderRadius.circular(20.0)),
-                            child: const Padding(
-                              padding: EdgeInsets.all(12),
-                              child: Icon(Icons.add,color: Colors.white70,),
+                          borderRadius: BorderRadius.circular(20),
+                          onTap: () {},
+                          child: Padding(
+                            padding: const EdgeInsets.all(2.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.grey.shade900,
+                                  borderRadius: BorderRadius.circular(20.0)),
+                              child: const Padding(
+                                padding: EdgeInsets.all(12),
+                                child: Icon(
+                                  Icons.add,
+                                  color: Colors.white70,
+                                ),
+                              ),
                             ),
                           ),
                         )
@@ -98,12 +104,70 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(
               height: 4,
             ),
-            Expanded(
-                child: Container(
-              width: width + 10,
+            Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20.0),
                   color: Colors.grey.shade900),
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(left: 5.0, bottom: 4),
+                      child: Text('Todays',
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white70)),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: const [
+                        Text('₹ 1,000',
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.green)),
+                        Text('₹ 1,000',
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.red)),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 17,
+            ),
+            Expanded(
+                child: Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20.0),
+                  color: Colors.grey.shade900),
+              child: Padding(
+                padding:
+                    const EdgeInsets.all(15),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text('Recent History',
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white70)),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    buildRHisory(),
+                    buildRHisory(),
+                    buildRHisory()
+                  ],
+                ),
+              ),
             )),
             const SizedBox(
               height: 17,
@@ -114,11 +178,10 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget buildSBox({required double width}) {
+  Widget buildSBox() {
     return Container(
       height: 80,
-      width: width,
-      margin: const EdgeInsets.only(left: 5, right: 5),
+      width: (MediaQuery.of(context).size.width - 30) / 2,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.0),
           color: Colors.grey.shade900),
@@ -129,7 +192,7 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: EdgeInsets.only(left: 12, right: 12),
             child: Text(
-              '₹ 1000',
+              '₹ 1,000',
               // Change text size
               style: TextStyle(
                   fontSize: 25,
@@ -153,6 +216,55 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
+    );
+  }
+
+  Widget buildRHisory() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5,vertical: 5),
+      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: const [
+                              Text(
+                                'Wallet',
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white70),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                'today , bus',
+                                style: TextStyle(color: Colors.white70),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: const [
+                              Text(
+                                '1000',
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white70),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                '10,000,000',
+                                style: TextStyle(color: Colors.white70),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
     );
   }
 }
