@@ -49,7 +49,7 @@ class _MainWidState extends State<MainWid> {
       ),
       body: pages[index],
       bottomNavigationBar: Container(
-        color: Colors.grey.shade800,
+        color: Colors.grey.shade900,
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
           child: GNav(
@@ -62,7 +62,7 @@ class _MainWidState extends State<MainWid> {
               tabBackgroundColor: const Color(0xff121212),
               activeColor: Colors.white70,
               color: Colors.white70,
-              backgroundColor: Colors.grey.shade800,
+              backgroundColor: Colors.grey.shade900,
               tabBorderRadius: 25,
               padding: const EdgeInsets.all(16),
               tabs: const [

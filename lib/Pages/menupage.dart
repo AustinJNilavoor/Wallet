@@ -96,7 +96,7 @@ class _MenuPageState extends State<MenuPage> {
       margin: const EdgeInsets.only(left: 5, right: 5),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15.0),
-          color: Colors.grey.shade800),
+          color: Colors.grey.shade900),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,

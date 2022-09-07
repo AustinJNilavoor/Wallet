@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
             width: width + 10,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.0),
-                color: Colors.grey.shade800),
+                color: Colors.grey.shade900),
             child: const Center(
               child: Text(
                 '₹ newTab',
@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
             width: width + 10,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.0),
-                color: Colors.grey.shade800),
+                color: Colors.grey.shade900),
             // child: Column(
             //   crossAxisAlignment: CrossAxisAlignment.start,
             //   children: [
@@ -109,7 +109,7 @@ class _HomePageState extends State<HomePage> {
       margin: const EdgeInsets.only(left: 5, right: 5),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.0),
-          color: Colors.grey.shade800),
+          color: Colors.grey.shade900),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
