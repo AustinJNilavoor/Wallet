@@ -36,10 +36,10 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             const SizedBox(
-              height: 17,
+              height: 15,
             ),
             Container(
-              height: 70,
+              height: 60,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20.0),
                   color: Colors.grey.shade900),
@@ -47,7 +47,46 @@ class _HomePageState extends State<HomePage> {
                 child: Text(
                   '₹ 100',
                   style: TextStyle(
-                      fontSize: 25, fontWeight: FontWeight.bold, color: color),
+                      fontSize: 23, fontWeight: FontWeight.bold, color: color),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20.0),
+                  color: Colors.grey.shade900),
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(left: 5.0, bottom: 4),
+                      child: Text('Todays',
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white70)),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: const [
+                        Text('₹ 1,000',
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.green)),
+                        Text('₹ 1,000',
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.red)),
+                      ],
+                    )
+                  ],
                 ),
               ),
             ),
@@ -102,45 +141,6 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             const SizedBox(
-              height: 4,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20.0),
-                  color: Colors.grey.shade900),
-              child: Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(left: 5.0, bottom: 4),
-                      child: Text('Todays',
-                          style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white70)),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: const [
-                        Text('₹ 1,000',
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.green)),
-                        Text('₹ 1,000',
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.red)),
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(
               height: 17,
             ),
             Expanded(
@@ -149,8 +149,7 @@ class _HomePageState extends State<HomePage> {
                   borderRadius: BorderRadius.circular(20.0),
                   color: Colors.grey.shade900),
               child: Padding(
-                padding:
-                    const EdgeInsets.all(15),
+                padding: const EdgeInsets.all(15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -221,50 +220,50 @@ class _HomePageState extends State<HomePage> {
 
   Widget buildRHisory() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5,vertical: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
-                              Text(
-                                'Wallet',
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white70),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                'today , bus',
-                                style: TextStyle(color: Colors.white70),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: const [
-                              Text(
-                                '1000',
-                                style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white70),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                '10,000,000',
-                                style: TextStyle(color: Colors.white70),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              Text(
+                'Wallet',
+                style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white70),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Text(
+                'today , bus',
+                style: TextStyle(color: Colors.white70),
+              ),
+            ],
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: const [
+              Text(
+                '1000',
+                style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white70),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Text(
+                '10,000,000',
+                style: TextStyle(color: Colors.white70),
+              ),
+            ],
+          )
+        ],
+      ),
     );
   }
 }

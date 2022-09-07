@@ -18,7 +18,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Wallet',
         theme: ThemeData(
-          // brightness: Brightness.light,
           primarySwatch: Colors.blue,
         ),
         home: const MainWid());
@@ -85,13 +84,6 @@ class _MainWidState extends State<MainWid> {
               ]),
         ),
       ),
-      // floatingActionButton: FloatingActionButton(
-      //       backgroundColor: const Color(0xccc33764),
-      //       onPressed: ((() {
-              
-      //       })),
-      //       child: const Icon(Icons.add, color: Colors.white),
-      //     ),
     );
   }
 }
