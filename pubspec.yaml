@@ -39,6 +39,19 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.10.0
+  flutter_native_splash: ^2.2.8
+
+flutter_native_splash:
+  color: "#121212"
+  image: assets/wallet.png
+  android_gravity: center
+  android: true
+
+
+flutter_icons:
+  android: "launcher_icon"
+  image_path: "assets/wallet.png"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
