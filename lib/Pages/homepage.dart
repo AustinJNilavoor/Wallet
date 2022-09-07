@@ -71,11 +71,11 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     const Padding(
                       padding: EdgeInsets.only(left: 5.0, bottom: 4),
-                      child: Text('Todays',
+                      child: Text('Today',
                           style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
-                              color: Colors.white70)),
+                              color: Colors.blue)),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -115,7 +115,7 @@ class _HomePageState extends State<HomePage> {
                         style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white70)),
+                            color: Colors.blue)),
                     const SizedBox(
                       height: 4,
                     ),
@@ -163,7 +163,7 @@ class _HomePageState extends State<HomePage> {
                         style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white70)),
+                            color: Colors.blue)),
                     const SizedBox(
                       height: 5,
                     ),

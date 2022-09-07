@@ -12,21 +12,21 @@ class _HistoryPageState extends State<HistoryPage> {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        buildBoxHis(),
-        buildBoxHis(),
-        buildBoxHis(),
-        buildBoxHis(),
-        buildBoxHis(),
-        buildBoxHis(),
-        buildBoxHis(),
-        buildBoxHis(),
-        buildBoxHis(),
-        buildBoxHis(),
+        buildBoxHis(color: Colors.red),
+        buildBoxHis(color: Colors.green),
+        buildBoxHis(color: Colors.red),
+        buildBoxHis(color: Colors.red),
+        buildBoxHis(color: Colors.green),
+        buildBoxHis(color: Colors.green),
+        buildBoxHis(color: Colors.green),
+        buildBoxHis(color: Colors.red),
+        buildBoxHis(color: Colors.green),
+        buildBoxHis(color: Colors.green),
       ],
     );
   }
 
-  Widget buildBoxHis() {
+  Widget buildBoxHis({required Color color}) {
     // Long press to delete
     // tap to edit
     return Column(
@@ -49,7 +49,7 @@ class _HistoryPageState extends State<HistoryPage> {
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white70),
+                          color: Colors.blue),
                     ),
                     SizedBox(
                       height: 5,
@@ -62,13 +62,13 @@ class _HistoryPageState extends State<HistoryPage> {
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
-                  children: const [
+                  children: [
                     Text(
                       '1000',
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white70),
+                          color: color),
                     ),
                     SizedBox(
                       height: 5,

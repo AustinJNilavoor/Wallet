@@ -57,12 +57,21 @@ class _MenuPageState extends State<MenuPage> {
         buildSBox(amount: 500, text: 'Home'),
         buildSBox(amount: 27, text: 'Amazon Pay'),
         buildSBox(amount: 54425, text: 'Lend'),
-        Container(
-          margin: const EdgeInsets.only(left: 5, right: 5),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15.0),
-              color: Colors.grey.shade900),
-          child: const Icon(Icons.add,color: Colors.white70,),
+        InkWell(
+          borderRadius: BorderRadius.circular(20),
+          onTap: () {},
+          child: Padding(
+            padding: const EdgeInsets.only(left: 5, right: 5),
+            child: Ink(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15.0),
+                  color: Colors.grey.shade900),
+              child: const Icon(
+                Icons.add,
+                color: Colors.white70,
+              ),
+            ),
+          ),
         )
       ],
     );
@@ -86,10 +95,12 @@ class _MenuPageState extends State<MenuPage> {
             icon: Icons.shortcut_rounded, text1: 'Create', text2: 'Shortcut'),
         buildButton(icon: Icons.clear, text1: 'Clear', text2: 'History'),
         buildButton(icon: Icons.search, text1: 'Search', text2: ''),
-        buildButton(icon: Icons.stacked_bar_chart_rounded, text1: 'Multiple', text2: 'Trans.'),
-        buildButton(icon: Icons.print, text1: 'Print', text2: 'Trans.'),
         buildButton(
-            icon: Icons.calendar_month, text1: 'Create', text2: 'Plan'),
+            icon: Icons.stacked_bar_chart_rounded,
+            text1: 'Multiple',
+            text2: 'Trans.'),
+        buildButton(icon: Icons.print, text1: 'Print', text2: 'Trans.'),
+        buildButton(icon: Icons.calendar_month, text1: 'Create', text2: 'Plan'),
         buildButton(icon: Icons.security, text1: 'Add', text2: 'Button 11'),
         buildButton(icon: Icons.security, text1: 'Add', text2: 'Button 12'),
       ],
