@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wallet/Pages/inputpage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -18,7 +19,12 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: const Color(0xff121212),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => InputPage()),
+          );
+        },
         child: const Icon(Icons.add),
       ),
       body: Padding(

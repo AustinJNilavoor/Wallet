@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Wallet',
         theme: ThemeData(
+          unselectedWidgetColor: Colors.white70,
           primarySwatch: Colors.blue,
         ),
         home: const MainWid());
