@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:wallet/globalvar.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({Key? key}) : super(key: key);
@@ -10,6 +12,7 @@ class MenuPage extends StatefulWidget {
 class _MenuPageState extends State<MenuPage> {
   @override
   Widget build(BuildContext context) {
+    final totalStr = NumberFormat('##,##,##0').format(Balance.totalbalance);
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 5),
@@ -17,7 +20,7 @@ class _MenuPageState extends State<MenuPage> {
           // shrinkWrap: true,
           // crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            buildSBox(amount: 10000, text: 'Total Balance'),
+            buildSBox(amount: totalStr, text: 'Total Balance'),
             const SizedBox(
               height: 17,
             ),
@@ -45,6 +48,12 @@ class _MenuPageState extends State<MenuPage> {
   }
 
   Widget buildBoxGrid() {
+    final walletStr = NumberFormat('##,##,##0').format(Balance.walletbalance);
+    final bankStr = NumberFormat('##,##,##0').format(Balance.bankbalance);
+    final homeStr = NumberFormat('##,##,##0').format(Balance.homebalance);
+    final amazpayStr = NumberFormat('##,##,##0').format(Balance.amazpaybalance);
+    final lendStr = NumberFormat('##,##,##0').format(Balance.lendmoney);
+
     return GridView.count(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
@@ -52,11 +61,11 @@ class _MenuPageState extends State<MenuPage> {
       childAspectRatio: 2.5,
       mainAxisSpacing: 15,
       children: [
-        buildSBox(amount: 1000, text: 'Wallet'),
-        buildSBox(amount: 102, text: 'Bank'),
-        buildSBox(amount: 500, text: 'Home'),
-        buildSBox(amount: 27, text: 'Amazon Pay'),
-        buildSBox(amount: 54425, text: 'Lend'),
+        buildSBox(amount: walletStr, text: 'Wallet'),
+        buildSBox(amount: bankStr, text: 'Bank'),
+        buildSBox(amount: homeStr, text: 'Home'),
+        buildSBox(amount: amazpayStr, text: 'Amazon Pay'),
+        buildSBox(amount: lendStr, text: 'Lend'),
         InkWell(
           borderRadius: BorderRadius.circular(20),
           onTap: () {},
@@ -107,7 +116,7 @@ class _MenuPageState extends State<MenuPage> {
     );
   }
 
-  Widget buildSBox({required int amount, required String text}) {
+  Widget buildSBox({required String amount, required String text}) {
     return Container(
       height: 70,
       width: (MediaQuery.of(context).size.width - 20),

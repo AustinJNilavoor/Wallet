@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:wallet/Pages/history.dart';
 import 'package:wallet/Pages/homepage.dart';
 import 'package:wallet/Pages/menupage.dart';
 import 'package:wallet/Pages/settingspage.dart';
+import 'package:wallet/model/transactionclass.dart';
 
-import 'Pages/history.dart';
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  Hive.registerAdapter(TransactionAdapter());
+  await Hive.openBox<Transaction>('transactions');
 
-void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+  
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +27,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           unselectedWidgetColor: Colors.white70,
           primarySwatch: Colors.blue,
+          brightness: Brightness.dark,
         ),
         home: const MainWid());
   }
@@ -33,8 +41,14 @@ class MainWid extends StatefulWidget {
 }
 
 class _MainWidState extends State<MainWid> {
+  @override
+  void dispose() {
+    Hive.close();
+    super.dispose();
+  }
+
   int index = 0;
-  final pages = const[ HomePage(), HistoryPage(), MenuPage(),SettingsPage()];
+  final pages = const [HomePage(), HistoryPage(), MenuPage(), SettingsPage()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,7 +72,6 @@ class _MainWidState extends State<MainWid> {
                   }),
               // iconSize: 21,
               gap: 8,
-              
               tabBackgroundColor: const Color(0xff121212),
               activeColor: Colors.white70,
               color: Colors.white70,
