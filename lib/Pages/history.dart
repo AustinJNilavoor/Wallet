@@ -13,6 +13,7 @@ class HistoryPage extends StatefulWidget {
 }
 
 class _HistoryPageState extends State<HistoryPage> {
+  
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<Box<Transaction>>(
@@ -56,9 +57,10 @@ class _HistoryPageState extends State<HistoryPage> {
         ' | ' +
         //  transaction.category +' | ' +
         transaction.notes;
-    final amou = transaction.amount.toDouble();
-    final foramount = NumberFormat('##,##,##0').format(amou);
+    final foramount = NumberFormat('##,##,##0').format(transaction.amount);
+    final forbalance = NumberFormat('##,##,##0').format(transaction.balance);
     final amount = '\₹ ' + foramount;
+    final balance = '\₹ ' + forbalance;
     // Long press to delete
     // tap to edit
     return Padding(
@@ -93,20 +95,26 @@ class _HistoryPageState extends State<HistoryPage> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Text(
+                      '${transaction.source}' + '  ',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blue),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
                     Row(
                       children: [
-                        Text(
-                          '${transaction.source}' + ',  ',
-                          style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.blue),
-                        ),
                         Text(transaction.category,
-                            style: TextStyle(color: Colors.white70))
+                            style: TextStyle(color: Colors.white70)),
+                            SizedBox(
+                      width: 5,),
+                            transaction.isTicked? Icon(Icons.check,size: 15,color: Colors.blue,):SizedBox(),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Text(
@@ -126,10 +134,10 @@ class _HistoryPageState extends State<HistoryPage> {
                           color: color),
                     ),
                     SizedBox(
-                      height: 5,
+                      height: 10,
                     ),
                     Text(
-                      '${transaction.balance}',
+                      balance,
                       style: TextStyle(color: Colors.white70),
                     ),
                   ],
@@ -170,7 +178,7 @@ class _HistoryPageState extends State<HistoryPage> {
 
   Widget DeleteDialog(Transaction transaction) {
     return AlertDialog(
-        contentPadding: EdgeInsets.only(top: 20,left: 20),
+        contentPadding: EdgeInsets.only(top: 20, left: 20),
         backgroundColor: Colors.grey.shade900,
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20.0))),

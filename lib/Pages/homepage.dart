@@ -89,9 +89,11 @@ class _HomePageState extends State<HomePage> {
 
     final total = transactions.fold<double>(
         0,
-        (previousValue, transaction) => transaction.isExpense
-            ? previousValue - transaction.amount
-            : previousValue + transaction.amount);
+        (previousValue, transaction) => transaction.isTicked
+            ? previousValue + 0
+            : transaction.isExpense
+                ? previousValue - transaction.amount
+                : previousValue + transaction.amount);
 
     final tab = transactions.fold<double>(
       0,
@@ -346,22 +348,21 @@ class _HomePageState extends State<HomePage> {
       return Center(
         child: Text(
           'No History',
-          style: TextStyle(fontSize: 25, color: Colors.white),
+          style: TextStyle(fontSize: 14, color: Colors.white70),
         ),
       );
     } else {
-      return SizedBox(
-        height: 170,
-        child: ListView.builder(
-          primary: false,
-          padding: EdgeInsets.all(10),
-          itemCount: transactions.length < 4 ? transactions.length : 3,
-          itemBuilder: (BuildContext context, int index) {
-            int revIndex = transactions.length - 1 - index;
-            final transaction = transactions[revIndex];
-            return buildRHistoryC(context, transaction);
-          },
-        ),
+      return ListView.builder(
+        shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
+        // primary: false,
+        padding: EdgeInsets.all(10),
+        itemCount: transactions.length < 4 ? transactions.length : 3,
+        itemBuilder: (BuildContext context, int index) {
+          int revIndex = transactions.length - 1 - index;
+          final transaction = transactions[revIndex];
+          return buildRHistoryC(context, transaction);
+        },
       );
     }
   }
@@ -399,7 +400,7 @@ class _HomePageState extends State<HomePage> {
             style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
-                color: Colors.white70),
+                color: transaction.isExpense ? Colors.red : Colors.green),
           ),
         ],
       ),
