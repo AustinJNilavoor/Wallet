@@ -1,0 +1,228 @@
+import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:intl/intl.dart';
+import 'package:wallet/box/boxes.dart';
+import 'package:wallet/model/transactionclass.dart';
+import 'package:wallet/pages/inputpage.dart';
+
+class HistoryPage extends StatefulWidget {
+  const HistoryPage({Key? key}) : super(key: key);
+
+  @override
+  State<HistoryPage> createState() => _HistoryPageState();
+}
+
+class _HistoryPageState extends State<HistoryPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color(0xff121212),
+      appBar: AppBar(
+        backgroundColor: const Color(0x00000000),
+        elevation: 0.0,
+        title: const Text(
+          'History',
+        ),
+      ),
+      body: ValueListenableBuilder<Box<Transaction>>(
+        valueListenable: Boxes.getTransactions().listenable(),
+        builder: (context, box, _) {
+          final transactions = box.values.toList().cast<Transaction>();
+
+          return buildContent(transactions);
+        },
+      ),
+    );
+  }
+
+  Widget buildContent(List<Transaction> transactions) {
+    if (transactions.isEmpty) {
+      return const Center(
+        child: Text(
+          'No History',
+          style: TextStyle(fontSize: 25, color: Colors.white),
+        ),
+      );
+    } else {
+      return ListView.builder(
+        primary: false,
+        padding: const EdgeInsets.all(10),
+        itemCount: transactions.length,
+        itemBuilder: (BuildContext context, int index) {
+          int revIndex = transactions.length - 1 - index;
+          final transaction = transactions[revIndex];
+          return buildBoxHis(context, transaction);
+        },
+      );
+    }
+  }
+
+  Widget buildBoxHis(
+    BuildContext context,
+    Transaction transaction,
+  ) {
+    final color = transaction.isExpense ? Colors.red : Colors.green;
+    final secLine = '${DateFormat.yMMMd().format(transaction.date)} | ${transaction.notes}';
+    final foramount = NumberFormat('##,##,##0').format(transaction.amount);
+    final forbalance = NumberFormat('##,##,##0').format(transaction.balance);
+    final amount = '₹ $foramount';
+    final balance = '₹ $forbalance';
+    // Long press to delete
+    // tap to edit
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(20),
+        onLongPress: () => showDialog(
+            context: context, builder: (context) => deleteDialog(transaction)),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => InputPage(
+                      transaction: transaction,
+                      onClickedDone: (amount, isExpense, date, category, source,
+                              isTicked, balance, notes, lentTotal) =>
+                          editTransaction(
+                              transaction,
+                              amount,
+                              isExpense,
+                              date,
+                              category,
+                              source,
+                              isTicked,
+                              balance,
+                              notes,
+                              lentTotal),
+                    )),
+          );
+        },
+        child: Ink(
+          width: (MediaQuery.of(context).size.width - 20),
+          decoration: BoxDecoration(
+              color: Colors.grey.shade900,
+              borderRadius: BorderRadius.circular(20)),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '${transaction.source}  ',
+                      style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blue),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Row(
+                      children: [
+                        Text(transaction.category,
+                            style: const TextStyle(color: Colors.white70)),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        transaction.isTicked
+                            ? const Icon(
+                                Icons.check,
+                                size: 15,
+                                color: Colors.blue,
+                              )
+                            : const SizedBox(),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      secLine,
+                      style: const TextStyle(color: Colors.white70),
+                    ),
+                  ],
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(
+                      amount,
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: color),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      balance,
+                      style: const TextStyle(color: Colors.white70),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void deleteTransaction(Transaction transaction) {
+    transaction.delete();
+  }
+
+  void editTransaction(
+      Transaction transaction,
+      double amount,
+      bool isExpense,
+      DateTime date,
+      String category,
+      String source,
+      bool isTicked,
+      double balance,
+      String notes,
+      double lendTotal) {
+    transaction.amount = amount;
+    transaction.isExpense = isExpense;
+    transaction.date = date;
+    transaction.category = category;
+    transaction.source = source;
+    transaction.isTicked = isTicked;
+    transaction.balance = balance;
+    transaction.notes = notes;
+    transaction.lendTotal = lendTotal;
+
+    transaction.save();
+  }
+
+  Widget deleteDialog(Transaction transaction) {
+    final foramount = NumberFormat('##,##,##0').format(transaction.amount);
+    final cont = '${transaction.source}  $foramount';
+    return AlertDialog(
+        contentPadding: const EdgeInsets.only(top: 20, left: 20),
+        backgroundColor: Colors.grey.shade900,
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20.0))),
+            title: const Text('Delete transaction',style: TextStyle(color: Colors.white70)),
+        content:Text(cont,
+            style: const TextStyle(color: Colors.white70)),
+        actions: [cancelButton(context), deleteButton(transaction)]);
+  }
+
+  Widget deleteButton(Transaction transaction) => TextButton(
+        child: const Text('Delete'),
+        onPressed: () {
+          deleteTransaction(transaction);
+          Navigator.of(context).pop();
+        },
+      );
+  Widget cancelButton(BuildContext context) => TextButton(
+        child: const Text('Cancel'),
+        onPressed: () => Navigator.of(context).pop(),
+      );
+}
