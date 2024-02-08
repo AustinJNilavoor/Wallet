@@ -10,8 +10,8 @@ Wallet is a money management app built with Flutter, designed to help users trac
 - **Multi-platform**: Wallet is built with Flutter, ensuring a smooth and consistent experience across Android and iOS devices.
 
 ## Screenshots
-![alt text](https://github.com/AustinJNilavoor/Wallet/blob/main/Image_1.jpg)
 ![alt text](Image_1.jpg)
+![alt text](Image_2.jpg)
 
 ## Getting Started
 
