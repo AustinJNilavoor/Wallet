@@ -13,7 +13,7 @@ Wallet is a money management app built with Flutter, designed to help users trac
 
 To get started with Wallet, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/your-username/wallet.git`
+1. Clone the repository: `git clone https://github.com/AustinJNilavoor/Wallet.git`
 2. Navigate to the project directory: `cd wallet`
 3. Install dependencies: `flutter pub get`
 4. Run the app: `flutter run`
